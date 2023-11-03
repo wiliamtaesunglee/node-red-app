@@ -2,13 +2,13 @@
 
 ## Pré-requsitos
 
-Este projeto requer docker instalado. caso não possua Docker instalado por favor siga a documentacao oficial:
+Este projeto requer docker instalado. Para instalacão por favor siga a documentacão oficial:
 
 [Docker Official Documentation](https://docs.docker.com/get-docker/)
 
-## Rodando a primeira vez
+## Rodando pela primeira vez
 
-Para rodar o projeto a primeira vez rode o comando:
+Use o comando:
 
 ```bash
 docker-compose up --build
@@ -16,22 +16,24 @@ docker-compose up --build
 
 **Note**: Talvez seja necessário usar `sudo` se voce tiver erro de permissão ao rodar o comando.
 
+*Note que a flag --build é necessária toda vez que houver alguma atualizaćão de dependencia ou estrutura do projeto
+
 ## Docker Compose
 
-O arquivo `docker-compose.yml` é usado para o processo de instalacao, start e build:
+O arquivo `docker-compose.yml`:
 
 - **Services**:
   - **node-red**:
     - **Ports**: mapeamento da porta local do container para a máquina rodando o mesmo
-    - **Volumes**: Mapeia o folder `./node-red-data` do host para `/data` dentro do container, o que possibilita a persistencia de dados ** sem isto toda as alteracoes se perdem uma vez que o container para e roda novamente
+    - **Volumes**: Mapeia o folder `./node-red-data` do host para `/data` dentro do container, o que possibilita a persistencia de dados
 
-Aós o primeiro build voce poderá rodar apenas:
+Após o primeiro build voce poderá rodar apenas:
 
 ```bash
 docker-compose up
 ```
 
-If not running as root:
+Se erro erro de permissão rode como root:
 
 ```bash
 sudo docker-compose up
@@ -48,5 +50,3 @@ Para outros detalhes consulte a docuemtacao oficial [Node-RED User Guide](https:
 - Outras informacoes sobre node-red e docker [Official Node-RED Docker Image Repository](https://hub.docker.com/r/nodered/node-red/).
 
 ---
-
-**Explore and automate with Node-RED in a Dockerized environment!**# node-red-app
