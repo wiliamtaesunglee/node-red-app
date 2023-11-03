@@ -1,34 +1,31 @@
-# Node-RED Docker Deployment
+# Node-RED
 
-This `README.md` provides instructions on how to set up and run a Node-RED instance using Docker and Docker Compose.
+## Pré-requsitos
 
-## Prerequisites
-
-Before you begin, ensure Docker is installed on your machine. If you do not have Docker, please refer to the official Docker documentation for installation instructions:
+Este projeto requer docker instalado. caso não possua Docker instalado por favor siga a documentacao oficial:
 
 [Docker Official Documentation](https://docs.docker.com/get-docker/)
 
-## First-Time Setup
+## Rodando a primeira vez
 
-For the initial setup of Node-RED or when updating dependencies, use Docker Compose to build and start your service:
+Para rodar o projeto a primeira vez rode o comando:
 
 ```bash
 docker-compose up --build
 ```
 
-**Note**: You might need to prepend `sudo` to the command if you're facing permission issues.
+**Note**: Talvez seja necessário usar `sudo` se voce tiver erro de permissão ao rodar o comando.
 
-## Using Docker Compose
+## Docker Compose
 
-The provided `docker-compose.yml` file is prepared for deploying Node-RED with Docker:
+O arquivo `docker-compose.yml` é usado para o processo de instalacao, start e build:
 
-- **Version**: It specifies version 3 of the Docker Compose file format.
 - **Services**:
   - **node-red**:
-    - **Ports**: Maps port 1880 from the host to the container.
-    - **Volumes**: Mounts the `./node-red-data` directory on the host to `/data` inside the container, allowing data persistence and state saving.
+    - **Ports**: mapeamento da porta local do container para a máquina rodando o mesmo
+    - **Volumes**: Mapeia o folder `./node-red-data` do host para `/data` dentro do container, o que possibilita a persistencia de dados ** sem isto toda as alteracoes se perdem uma vez que o container para e roda novamente
 
-After the initial build, you can start your service with:
+Aós o primeiro build voce poderá rodar apenas:
 
 ```bash
 docker-compose up
@@ -42,27 +39,13 @@ sudo docker-compose up
 
 ## Node-RED Data Persistence
 
-Any changes made within the `node-red-data` folder will persist and be reflected in the Node-RED container. However, if you modify these files directly outside of Node-RED's interface, these changes will not appear in the running application until you restart the service.
+qualquer alteracão no folder `node-red-data` será persistido no Node-RED container. É preciso notar que, se os arquvos dentro de node-red-data forem alterados fora da aplicacao, no seu editor de codigo, por exemplo, a applicacao deverá ser restartada, isso porque o docker nao tem um watch que possibilita ver quando algo foi alterado fora da aplicacão, para que isso seja possível existem alternativas, favor entrar em contato com o autor do projeto para maiores esclarecimentos.
 
-For more details about how Node-RED uses this directory, consult the [Node-RED User Guide](https://nodered.org/docs/user-guide/).
-
-## Running the Service
-
-To start Node-RED after the initial setup, you can use:
-
-```bash
-docker-compose up
-```
-
-Or, with `sudo` if required:
-
-```bash
-sudo docker-compose up
-```
+Para outros detalhes consulte a docuemtacao oficial [Node-RED User Guide](https://nodered.org/docs/user-guide/).
 
 ## Further Reading
 
-- To learn more about the base Docker image for Node-RED, visit the [Official Node-RED Docker Image Repository](https://hub.docker.com/r/nodered/node-red/).
+- Outras informacoes sobre node-red e docker [Official Node-RED Docker Image Repository](https://hub.docker.com/r/nodered/node-red/).
 
 ---
 
