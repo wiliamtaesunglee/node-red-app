@@ -1,0 +1,54 @@
+[
+    {
+        "id": "35eb4cb6d9cca46a",
+        "type": "tab",
+        "label": "my first flow",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "0482867ba5489385",
+        "type": "tab",
+        "label": "new flow here",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "6c3b36063d53b4f7",
+        "type": "function",
+        "z": "35eb4cb6d9cca46a",
+        "name": "this is my first method",
+        "func": "\nconsole.log('hello guys')",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "059c58e4322efcd2",
+        "type": "function",
+        "z": "0482867ba5489385",
+        "name": "function 1",
+        "func": "\nconsole.log('this is my second flow')",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    }
+]
